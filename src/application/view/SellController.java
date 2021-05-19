@@ -17,6 +17,7 @@ public class SellController implements Initializable {
 	@FXML
 	private Label customer;
 
+	
 	@FXML
 	private TableView<?> table;
 
