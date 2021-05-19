@@ -26,9 +26,7 @@ public class SellController implements Initializable {
 	@FXML
 	private TextField discount;
 	
-	public static void getCustomer(User u) {
-		
-	}
+	
 
 	public void cancel() {
 		ChangeView.change("HomePage", table.getScene());
