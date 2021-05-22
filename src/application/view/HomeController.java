@@ -20,12 +20,12 @@ public class HomeController implements Initializable{
 		
 			users.setOnMouseClicked(e->{
 				if(e.getClickCount()==2) {
-					ChangeView.change("MainView",add.getScene());
+					ChangeView.change("MainView",add.getScene(),null);
 				}
 			});
 			add.setOnMouseClicked(e->{
 				if(e.getClickCount()==2) {
-					ChangeView.change("Add",add.getScene());
+					ChangeView.change("Add",add.getScene(),null);
 				}
 			});
 		}

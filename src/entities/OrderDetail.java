@@ -8,8 +8,9 @@ public class OrderDetail implements Serializable {
 	private int id;
 	private int count;
 	private int total;
+	private String name;
+	private int price;
 	
-	private Item item;
 	private Voucher voucher;
 	public int getId() {
 		return id;
@@ -29,11 +30,18 @@ public class OrderDetail implements Serializable {
 	public void setTotal(int total) {
 		this.total = total;
 	}
-	public Item getItem() {
-		return item;
+	
+	public String getName() {
+		return name;
 	}
-	public void setItem(Item item) {
-		this.item = item;
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	public Voucher getVoucher() {
 		return voucher;

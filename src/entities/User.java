@@ -3,25 +3,27 @@ package entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class User implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	private String username;
+	private SimpleStringProperty username;
 	private int debt;
-	private String remark;
-	private String phone;
-	private String address;
+	private SimpleStringProperty remark;
+	private SimpleStringProperty phone;
+	private SimpleStringProperty address;
 	private int userId;
-	private String partner;
+	private SimpleStringProperty partner;
 	
 	private List<Instalment> instalments;
 	private List<Voucher> vouchers;
  	
 	public String getUsername() {
-		return username;
+		return username.get();
 	}
 	public void setUsername(String username) {
-		this.username = username;
+		this.username =new SimpleStringProperty(username) ;
 	}
 	public int getDebt() {
 		return debt;
@@ -30,10 +32,10 @@ public class User implements Serializable{
 		this.debt = debt;
 	}
 	public String getRemark() {
-		return remark;
+		return remark.get();
 	}
 	public void setRemark(String remark) {
-		this.remark = remark;
+		this.remark = new SimpleStringProperty(remark);
 	}
 	
 	public List<Voucher> getVouchers() {
@@ -49,16 +51,16 @@ public class User implements Serializable{
 		this.instalments = instalments;
 	}
 	public String getPhone() {
-		return phone;
+		return phone.get();
 	}
 	public void setPhone(String phone) {
-		this.phone = phone;
+		this.phone = new SimpleStringProperty(phone);
 	}
 	public String getAddress() {
-		return address;
+		return address.get();
 	}
 	public void setAddress(String address) {
-		this.address = address;
+		this.address = new SimpleStringProperty(address);
 	}
 	public int getUserId() {
 		return userId;
@@ -67,13 +69,28 @@ public class User implements Serializable{
 		this.userId = userId;
 	}
 	public String getPartner() {
-		return partner;
+		return partner.get();
 	}
 	public void setPartner(String partner) {
-		this.partner = partner;
+		this.partner = new SimpleStringProperty(partner);
 	}
+
 	
-	
+	public void setObject(String s,Object object) {
+		//TODO update also in user repo DB
+		if(s.equals("username"))
+			this.username=new SimpleStringProperty((String) object);
+		else if(s.equals("partner"))
+			this.partner=new SimpleStringProperty((String) object);
+		else if(s.equals("remark"))
+			this.remark=new SimpleStringProperty((String) object);
+		else if(s.equals("address"))
+			this.address=new SimpleStringProperty((String) object);
+		else {
+			this.phone=new SimpleStringProperty((String) object);
+		}
+		
+	}
 	
 
 }

@@ -18,7 +18,7 @@ public class UserRepoDBImpl implements UserRepo {
 	private final static String SELECT = "select * from user";
 	private final static String INSERT = "insert into user(username,remark,user_id,phone,address,partner,debt) values (?,?,?,?,?,?,?)";
 	private final static String DELETE = "delete from user where user_id=?";
-	private final static String INSERTID = "insert into idTable values (?)";
+	private final static String INSERTID = "insert into useridTable values (?)";
 
 	public static UserRepo getINSTANCE() {
 		return INSTANCE;
@@ -87,15 +87,25 @@ public class UserRepoDBImpl implements UserRepo {
 
 	@Override
 	public void delete(User user) {
-		try (Connection c = ConnectionManager.getConnection();
+		
+		try ( Connection c = ConnectionManager.getConnection();
 				PreparedStatement prep = c.prepareStatement(DELETE);
 				PreparedStatement p2 = c.prepareStatement(INSERTID)) {
-
+			
 			prep.setInt(1, user.getUserId());
-			prep.executeUpdate();
-
 			p2.setInt(1, user.getUserId());
-			p2.execute();
+			
+			try {
+				prep.execute();
+				p2.execute();
+				c.commit();
+			
+			}catch(SQLException s) {
+				c.rollback();
+				s.printStackTrace();
+			}
+			
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

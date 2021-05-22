@@ -14,10 +14,6 @@
       <HBox alignment="CENTER_LEFT" spacing="30.0" style="-fx-background-color: #393e46;">
          <children>
             <SVGPath fx:id="home" content="M32 14.25l-4.5-4.5v-6.75h-3v3.75l-4.5-4.5-12 12v0.75h3v7.5h7.5v-4.5h3v4.5h7.5v-7.5h3z" fill="#05f2c3" />
-            <SVGPath fx:id="sell" content="M24 12v-9h-18c0-0.828-0.672-1.5-1.5-1.5h-4.5v1.5h3l1.127 9.658c-0.687 0.55-1.127 1.395-1.127 2.342 0 1.657 1.343 3 3 3h18v-1.5h-18c-0.828 0-1.5-0.672-1.5-1.5 0-0.005 0-0.010 0-0.015l19.5-2.985zM9 21.75c0 1.243-1.007 2.25-2.25 2.25s-2.25-1.007-2.25-2.25c0-1.243 1.007-2.25 2.25-2.25s2.25 1.007 2.25 2.25zM24 21.75c0 1.243-1.007 2.25-2.25 2.25s-2.25-1.007-2.25-2.25c0-1.243 1.007-2.25 2.25-2.25s2.25 1.007 2.25 2.25z" fill="#11adf2" HBox.hgrow="NEVER">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin></SVGPath>
             <HBox>
                <HBox.margin>
                   <Insets />
@@ -36,19 +32,21 @@
             <Insets bottom="3.0" left="30.0" right="10.0" top="3.0" />
          </padding>
       </HBox>
-      <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" VBox.vgrow="ALWAYS">
         <columns>
-          <TableColumn fx:id="username" prefWidth="250.0" text="CustomerName">
+        
+          <TableColumn fx:id="username" prefWidth="200.0" text="Customer">
           <cellValueFactory>
           		<PropertyValueFactory property="username" />
           	</cellValueFactory>
           	</TableColumn>
-            <TableColumn fx:id="debt" prefWidth="150.0" text="Debt">
+            <TableColumn fx:id="partner" prefWidth="150.0" text="Partner" />
+            <TableColumn fx:id="debt" prefWidth="100.0" text="Debt">
             <cellValueFactory>
           		<PropertyValueFactory property="debt" />
           	</cellValueFactory>
           	</TableColumn>
-            <TableColumn fx:id="remark" prefWidth="190.0" text="Remark">
+            <TableColumn fx:id="remark" prefWidth="150.0" text="Remark">
             <cellValueFactory>
           		<PropertyValueFactory property="remark" />
           	</cellValueFactory>

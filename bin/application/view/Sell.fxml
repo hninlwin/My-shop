@@ -19,14 +19,37 @@
       </Label>
       <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="SOMETIMES">
         <columns>
-          <TableColumn prefWidth="300.0" text="Item Name" />
-          <TableColumn prefWidth="75.0" text="Count" />
-            <TableColumn prefWidth="150.0" text="Price" />
-            <TableColumn prefWidth="174.0" text="Sub Total" />
+          <TableColumn fx:id="tcname" prefWidth="300.0" text="Item Name" />
+          <TableColumn fx:id="tccount" prefWidth="75.0" text="Count" />
+            <TableColumn fx:id="tcprice" prefWidth="150.0" text="Price" />
+            <TableColumn fx:id="subTotal" prefWidth="174.0" text="Sub Total" />
         </columns>
       </TableView>
       <VBox spacing="5.0">
          <children>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" spacing="10.0" VBox.vgrow="SOMETIMES">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Item:" />
+                        <TextField fx:id="name" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="255.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Count:" />
+                        <TextField fx:id="count" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="368.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Price:" />
+                        <TextField fx:id="price" />
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#add" prefWidth="50.0" style="-fx-background-color: steelblue;" text="Add" />
+               </children>
+            </HBox>
             <HBox alignment="CENTER_RIGHT" prefWidth="200.0" spacing="5.0">
                <children>
                   <Label text="TOTAL:">
@@ -34,7 +57,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="total" />
+                  <TextField accessibleRole="TEXT" />
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefWidth="200.0" spacing="5.0">
